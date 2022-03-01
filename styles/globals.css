@@ -1,0 +1,182 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Syne, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  height: 100%;
+  background-color: var(--color-background);
+  color: white;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  font-size: 62.5%; /* 1 rem = 10px; 10px/16px = 62.5% */
+
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%;
+    }
+  }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%;
+    }
+  }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 75%;
+    }
+  }
+  @media only screen and (min-width: 160em) {
+    html {
+      font-size: 100%;
+    }
+  }
+}
+
+@font-face {
+  font-family: "Syne";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/Syne-Regular.ttf) format("truetype");
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+pre,
+ul,
+li {
+  font-weight: 400;
+  margin: 0;
+}
+
+:root {
+  --color-background: #4c4c4c;
+}
+
+@keyframes hidden {
+  from {
+    visibility: hidden;
+  }
+  to {
+    visibility: visible;
+  }
+}
+
+@keyframes fall {
+  from {
+  }
+  to {
+    transform: translateY(45vh);
+  }
+}
+
+@keyframes explode {
+  from {
+    transform: scale(1);
+    transform: translateY(45vh);
+  }
+  to {
+    transform: translateY(45vh);
+    transform: scale(200);
+  }
+}
+
+@keyframes showAndHide {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  30% {
+    visibility: visible;
+    opacity: 1;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    visibility: visible;
+    transform: translateY(35vh);
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(25vh);
+  }
+}
+
+@keyframes wait {
+  from {
+    transform: translateY(25vh);
+  }
+  to {
+    transform: translateY(25vh);
+  }
+}
+
+@keyframes moveUp {
+  from {
+    transform: translateY(25vh);
+  }
+  to {
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes collapseDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15vh);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes collapseUp {
+  from {
+    opacity: 0;
+    transform: translateY(15vh);
+  }
+  to {
+    opacity: 1;
+  }
+}

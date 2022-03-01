@@ -1,0 +1,34 @@
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-react": {
+          "runtime": "automatic",
+          "importSource": "@emotion/react"
+        }
+      }
+    ],
+    [
+      "@emotion/babel-preset-css-prop",
+      {
+        "autoLabel": "dev-only",
+        "labelFormat": "[local]",
+        "useBuiltIns": false,
+        "throwIfNamespace": true
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "@emotion",
+      {
+        // sourceMap is on by default but source maps are dead code eliminated in production
+        "sourceMap": true,
+        "autoLabel": "dev-only",
+        "labelFormat": "[local]",
+        "cssPropOptimization": true
+      }
+    ]
+  ]
+}
