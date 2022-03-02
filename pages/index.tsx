@@ -95,10 +95,15 @@ const Header = styled.h1`
 `
 
 const LogoWrapper = styled.div`
-  width: 80%;
+  width: 100%;
   justify-self: center;
+  text-align: center;
 
   animation: hidden both 13.5s 13.5s, fadeIn 0.5s 13.5s ease-out;
+
+  @media ${BREAKPOINTS.mobileL} {
+    width: 85%;
+  }
 `
 
 const StyledImage = styled(Image)`
@@ -373,7 +378,8 @@ const Home: NextPage = () => {
           <StyledImage
             src={MainLogo}
             alt={"Time & Space Logo"}
-            objectFit="cover"
+            width="500"
+            height="52"
           />
         </LogoWrapper>
       )
