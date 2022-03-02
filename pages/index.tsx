@@ -97,12 +97,12 @@ const Header = styled.h1`
 const LogoWrapper = styled.div`
   width: 80%;
   justify-self: center;
+
+  animation: hidden both 13.5s 13.5s, fadeIn 0.5s 13.5s ease-out;
 `
 
 const StyledImage = styled(Image)`
   z-index: 100;
-
-  animation: hidden both 13.5s 13.5s, fadeIn 0.5s 13.5s ease-out;
 `
 
 const EndText = styled.span`
@@ -369,12 +369,13 @@ const Home: NextPage = () => {
       )
     } else {
       return (
-        <StyledImage
-          src={MainLogo}
-          alt={"Time & Space Logo"}
-          width="70"
-          height="70"
-        />
+        <LogoWrapper>
+          <StyledImage
+            src={MainLogo}
+            alt={"Time & Space Logo"}
+            objectFit="cover"
+          />
+        </LogoWrapper>
       )
     }
   }
