@@ -166,10 +166,9 @@ const PointingLight = styled.div`
 
 const TopCircleLight = styled.div`
   position: fixed;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  transform: translateX(-50%);
+  left: 50%;
+  overflow-x: hidden;
 
   width: 75rem;
   height: 75rem;
@@ -208,8 +207,6 @@ const TopCircleLight = styled.div`
 
 const BottomCircleLight = styled.div`
   position: fixed;
-  left: 0;
-  right: 0;
   /* margin-left: auto;
   margin-right: auto; */
   transform: translateX(-50%);
