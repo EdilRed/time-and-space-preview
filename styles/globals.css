@@ -174,9 +174,10 @@ li {
 @keyframes collapseUp {
   from {
     opacity: 0;
-    transform: translateY(15vh);
+    transform: translate(-50%, 15vh);
   }
   to {
     opacity: 1;
+    transform: translateX(-50%);
   }
 }

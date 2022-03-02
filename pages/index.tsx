@@ -30,34 +30,50 @@ const Main = styled.main`
   min-height: 100vh;
   padding: 8rem 8rem;
   display: grid;
+  gap: 1rem;
   grid-template-rows: repeat(3, 1fr);
   justify-content: center;
   align-items: center;
   white-space: pre-wrap;
   overflow-x: hidden;
+  z-index: 10;
 
   @media ${BREAKPOINTS.laptop} {
-    padding: 4rem 4rem;
+    padding: 8rem 4rem;
   }
 
   @media ${BREAKPOINTS.tablet} {
-    padding: 2rem 2rem;
+    padding: 6rem 2rem;
   }
 
   @media ${BREAKPOINTS.mobileL} {
-    padding: 1rem 1rem;
+    padding: 4rem 2rem;
+    gap: 0;
   }
 `
 
 const HeaderWrapper = styled.div`
+  justify-self: flex-start;
   display: flex;
   width: 100%;
   flex-direction: column;
   gap: 1.2rem;
   align-items: center;
 
-  animation: hidden both 8s 8s, appear 2s 7s ease-in, wait 1s 9s,
-    moveUp 2s 10s ease-in;
+  @media ${BREAKPOINTS.laptop} {
+    align-self: flex-end;
+  }
+
+  @media ${BREAKPOINTS.tablet} {
+    align-self: flex-end;
+  }
+
+  @media ${BREAKPOINTS.mobileL} {
+    align-self: flex-end;
+  }
+
+  animation: hidden both 8s 8s, appear 2s 7s ease-in, wait 1.5s 9s ease-in-out,
+    moveUp 2s 10.5s ease-in;
 `
 
 const Header = styled.h1`
@@ -78,15 +94,15 @@ const Header = styled.h1`
   }
 `
 
-// const LogoWrapper = styled.div`
-//   width: 100%;
-//   height: 100%;
-// `;
+const LogoWrapper = styled.div`
+  width: 80%;
+  justify-self: center;
+`
 
 const StyledImage = styled(Image)`
   z-index: 100;
 
-  animation: hidden both 13s 13s, fadeIn 0.5s 13s ease-out;
+  /* animation: hidden both 13.5s 13.5s, fadeIn 0.5s 13.5s ease-out; */
 `
 
 const EndText = styled.span`
@@ -96,12 +112,19 @@ const EndText = styled.span`
   font-size: 2.6rem;
   text-align: center;
 
+  @media ${BREAKPOINTS.laptop} {
+    font-size: 2.4rem;
+    align-self: flex-start;
+  }
+
   @media ${BREAKPOINTS.tablet} {
     font-size: 2rem;
+    align-self: flex-start;
   }
 
   @media ${BREAKPOINTS.mobileL} {
     font-size: 1.4rem;
+    align-self: flex-start;
   }
 
   animation: hidden both 16.5s 16.5s, fadeIn 0.5s 16.5s ease;
@@ -157,14 +180,22 @@ const TopCircleLight = styled.div`
   );
   z-index: 2;
 
+  @media ${BREAKPOINTS.laptop} {
+    width: 68rem;
+    height: 68rem;
+    top: 4%;
+  }
+
   @media ${BREAKPOINTS.tablet} {
     width: 54rem;
     height: 54rem;
+    top: 24%;
   }
 
   @media ${BREAKPOINTS.mobileL} {
     width: 30rem;
     height: 30rem;
+    top: 30%;
   }
 
   animation: hidden both 14s 14s, collapseDown 1s 14s ease;
@@ -174,8 +205,10 @@ const BottomCircleLight = styled.div`
   position: fixed;
   left: 0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
+  transform: translateX(-50%);
+  left: 50%;
   overflow-x: hidden;
 
   width: 105rem;
@@ -196,16 +229,22 @@ const BottomCircleLight = styled.div`
   );
   z-index: 3;
 
+  @media ${BREAKPOINTS.laptop} {
+    width: 90rem;
+    height: 90rem;
+    bottom: -20%;
+  }
+
   @media ${BREAKPOINTS.tablet} {
-    width: 76rem;
-    height: 76rem;
-    bottom: -40rem;
+    width: 78rem;
+    height: 78rem;
+    bottom: -18%;
   }
 
   @media ${BREAKPOINTS.mobileL} {
-    width: 42rem;
-    height: 42rem;
-    bottom: -16rem;
+    width: 50rem;
+    height: 50rem;
+    bottom: -14%;
   }
 
   animation: hidden both 14s 14s, collapseUp 1s 14s ease;
@@ -232,14 +271,20 @@ const InnerCircleLight = styled.div`
   );
   z-index: 1;
 
+  @media ${BREAKPOINTS.laptop} {
+    bottom: -10%;
+  }
+
   @media ${BREAKPOINTS.tablet} {
     width: 36rem;
     height: 36rem;
+    bottom: -4%;
   }
 
   @media ${BREAKPOINTS.mobileL} {
     width: 20.5rem;
     height: 20.5rem;
+    bottom: 16%;
   }
 
   animation: hidden both 15.5s 15.5s, fadeIn 0.5s 15.5s ease;
@@ -270,21 +315,7 @@ const Home: NextPage = () => {
   }, [])
 
   const renderHeader = () => {
-    if (screenSize.dynamicWidth < SIZE.laptop) {
-      return (
-        <HeaderWrapper>
-          <Header>
-            {"The greatest asset one can possess is\nTime and Space"}
-          </Header>
-          <Header>
-            {"Life happens not only in Space, but also\nin Time."}
-          </Header>
-          <Header>
-            {"Therefore, true wellbeing in life is a\ndelicate balance between"}
-          </Header>
-        </HeaderWrapper>
-      )
-    } else if (screenSize.dynamicWidth < SIZE.mobileL) {
+    if (screenSize.dynamicWidth < SIZE.mobileL) {
       return (
         <HeaderWrapper>
           <Header>
@@ -298,6 +329,20 @@ const Home: NextPage = () => {
           </Header>
         </HeaderWrapper>
       )
+    } else if (screenSize.dynamicWidth < SIZE.laptop) {
+      return (
+        <HeaderWrapper>
+          <Header>
+            {"The greatest asset one can possess is\nTime and Space"}
+          </Header>
+          <Header>
+            {"Life happens not only in Space, but also\nin Time."}
+          </Header>
+          <Header>
+            {"Therefore, true wellbeing in life is a\ndelicate balance between"}
+          </Header>
+        </HeaderWrapper>
+      )
     } else {
       return (
         <HeaderWrapper>
@@ -307,6 +352,29 @@ const Home: NextPage = () => {
             }
           </Header>
         </HeaderWrapper>
+      )
+    }
+  }
+
+  const renderLogo = () => {
+    if (screenSize.dynamicWidth < SIZE.mobileL) {
+      return (
+        <LogoWrapper>
+          <StyledImage
+            src={MainLogo}
+            alt={"Time & Space Logo"}
+            objectFit="cover"
+          />
+        </LogoWrapper>
+      )
+    } else {
+      return (
+        <StyledImage
+          src={MainLogo}
+          alt={"Time & Space Logo"}
+          width="70"
+          height="70"
+        />
       )
     }
   }
@@ -333,12 +401,7 @@ const Home: NextPage = () => {
 
       <Main>
         {renderHeader()}
-        <StyledImage
-          src={MainLogo}
-          alt={"Time & Space Logo"}
-          width="70"
-          height="70"
-        />
+        {renderLogo()}
 
         <EndText>Be ready to experience the moment</EndText>
       </Main>
