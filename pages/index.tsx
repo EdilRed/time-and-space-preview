@@ -102,7 +102,7 @@ const LogoWrapper = styled.div`
 const StyledImage = styled(Image)`
   z-index: 100;
 
-  /* animation: hidden both 13.5s 13.5s, fadeIn 0.5s 13.5s ease-out; */
+  animation: hidden both 13.5s 13.5s, fadeIn 0.5s 13.5s ease-out;
 `
 
 const EndText = styled.span`
